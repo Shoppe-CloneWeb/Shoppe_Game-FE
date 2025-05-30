@@ -4,7 +4,10 @@ import react from 'eslint-plugin-react'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import prettierPlugin from 'eslint-plugin-prettier'
 import prettierConfig from 'eslint-config-prettier'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
   js.configs.recommended,
@@ -24,7 +27,7 @@ export default [
       },
       'import/resolver': {
         node: {
-          paths: ['src'],
+          paths: [path.resolve(__dirname)],
           extensions: ['.js', '.jsx', '.ts', '.tsx']
         }
       }
